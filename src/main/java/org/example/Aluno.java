@@ -36,7 +36,11 @@ public class Aluno {
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+        if (matricula.matches("\\d{11}")) {
+            this.matricula = matricula;
+        } else {
+            throw new IllegalArgumentException("A matrícula deve ter 11 dígitos e conter apenas números.");
+        }
     }
 
     public String getCpf() {
@@ -44,6 +48,10 @@ public class Aluno {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf.matches("\\d{11}")) {
+            this.cpf = cpf;
+        } else {
+            throw new IllegalArgumentException("O CPF deve conter apenas números e ter 11 dígitos.");
+        }
     }
 }
